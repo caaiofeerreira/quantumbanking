@@ -5,6 +5,7 @@ import com.banking.quantum.manager.domain.dto.CreateManagerDto;
 import com.banking.quantum.manager.domain.manager.Manager;
 import com.banking.quantum.manager.domain.repository.AgencyRepository;
 import com.banking.quantum.manager.domain.repository.ManagerRepository;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -44,6 +45,10 @@ public class ValidateManager {
             throw new ValidateException("O email é obrigatório.");
         }
 
+        if (!isEmailValid(managerDto.email())) {
+            throw new ValidateException("O e-mail fornecido não é válido.");
+        }
+
         if (!managerDto.password().matches(".{8,}")) {
             throw new ValidateException("A senha deve conter pelo menos 8 caracteres.");
         }
@@ -70,5 +75,10 @@ public class ValidateManager {
 
             throw new ValidateException("Os campos: Logradouro, número, bairro, cidade e CEP são obrigatórios.");
         }
+    }
+
+    private boolean isEmailValid(String email) {
+        EmailValidator validator = EmailValidator.getInstance();
+        return validator.isValid(email);
     }
 }

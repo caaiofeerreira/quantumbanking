@@ -5,6 +5,7 @@ import com.banking.quantum.client.domain.dto.CreateClientDto;
 import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.common.infra.exception.UserAlreadyExistsException;
 import com.banking.quantum.common.infra.exception.ValidateException;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -41,6 +42,10 @@ public class ValidateClient {
             throw new ValidateException("O email é obrigatório.");
         }
 
+        if (!isEmailValid(clientDto.email())) {
+            throw new ValidateException("O e-mail fornecido não é válido.");
+        }
+
         if (!clientDto.password().matches(".{8,}")) {
             throw new ValidateException("A senha deve conter pelo menos 8 caracteres.");
         }
@@ -60,5 +65,10 @@ public class ValidateClient {
 
             throw new ValidateException("Os campos: Logradouro, número, bairro, cidade e CEP são obrigatórios.");
         }
+    }
+
+    private boolean isEmailValid(String email) {
+        EmailValidator validator = EmailValidator.getInstance();
+        return validator.isValid(email);
     }
 }
