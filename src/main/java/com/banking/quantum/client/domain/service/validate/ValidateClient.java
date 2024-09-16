@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+
 @Component
 public class ValidateClient {
 
@@ -29,14 +30,14 @@ public class ValidateClient {
             throw new ValidateException("O CPF deve estar no formato XXX.XXX.XXX-XX.");
         }
 
-        if(clientDto.phone() == null || clientDto.phone().trim().isEmpty()) {
+        if (clientDto.phone() == null || clientDto.phone().trim().isEmpty()) {
             throw new ValidateException("O phone é obrigatório.");
 
         } else if (!clientDto.phone().matches("\\(\\d{2}\\) \\d{5}-\\d{4}")) {
             throw new ValidateException("O telefone deve estar no formato (XX) XXXXX-XXXX.");
         }
 
-        if(clientDto.email() == null || clientDto.email().trim().isEmpty()) {
+        if (clientDto.email() == null || clientDto.email().trim().isEmpty()) {
             throw new ValidateException("O email é obrigatório.");
         }
 
@@ -56,6 +57,7 @@ public class ValidateClient {
                 clientDto.address().getBairro() == null || clientDto.address().getBairro().trim().isEmpty() ||
                 clientDto.address().getCidade() == null || clientDto.address().getCidade().trim().isEmpty() ||
                 clientDto.address().getCep() == null || clientDto.address().getCep().trim().isEmpty()) {
+
             throw new ValidateException("Os campos: Logradouro, número, bairro, cidade e CEP são obrigatórios.");
         }
     }

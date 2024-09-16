@@ -32,6 +32,7 @@ public class ValidateManagerUpdate {
                 managerUpdate.getAddress().getCidade() == null || managerUpdate.getAddress().getCidade().trim().isEmpty() ||
                 managerUpdate.getAddress().getEstado() == null || managerUpdate.getAddress().getEstado().trim().isEmpty() ||
                 managerUpdate.getAddress().getCep() == null || managerUpdate.getAddress().getCep().trim().isEmpty()) {
+
             throw new ValidateException("Os campos: logradouro, número, bairro, cidade, estado e cep são obrigatórios. Apenas o campo complemento não é obrigatório.");
         }
     }

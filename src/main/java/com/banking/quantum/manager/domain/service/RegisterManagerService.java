@@ -1,7 +1,7 @@
 package com.banking.quantum.manager.domain.service;
 
 import com.banking.quantum.common.domain.user.UserRole;
-import com.banking.quantum.common.infra.exception.ManagerCreateExeption;
+import com.banking.quantum.common.infra.exception.RegisterUserException;
 import com.banking.quantum.common.infra.exception.ValidateException;
 import com.banking.quantum.manager.domain.banking.Agency;
 import com.banking.quantum.manager.domain.dto.CreateManagerDto;
@@ -67,7 +67,7 @@ public class RegisterManagerService {
             return new ManagerDto(newManager);
 
         } catch (Exception e) {
-            throw new ManagerCreateExeption("Dados inválidos. Por favor, verifique as informações e tente novamente. " + e.getMessage());
+            throw new RegisterUserException("Dados inválidos. Por favor, verifique as informações e tente novamente. " + e.getMessage());
         }
     }
 }

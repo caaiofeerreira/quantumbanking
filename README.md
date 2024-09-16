@@ -23,3 +23,5 @@ ___
 - Consultar Saldo.
 - Deposito.
 - Saque.
+- Transferencia Bancaria (Interna/Externa).
+- Pix.

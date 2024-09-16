@@ -4,7 +4,7 @@ import com.banking.quantum.client.domain.dto.ClientDto;
 import com.banking.quantum.client.domain.dto.CreateAccountDto;
 import com.banking.quantum.client.domain.dto.CreateClientDto;
 import com.banking.quantum.client.domain.dto.RegisterClientAndAccount;
-import com.banking.quantum.client.domain.service.RegisterClientService;
+import com.banking.quantum.client.domain.service.RegisterClientAndAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegisterClientController {
 
     @Autowired
-    private RegisterClientService registerService;
+    private RegisterClientAndAccountService registerService;
 
     @PostMapping("/register")
     public ResponseEntity<ClientDto> createAccount(@RequestBody @Valid RegisterClientAndAccount clientAndAccountDto) {

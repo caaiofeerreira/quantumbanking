@@ -1,19 +1,16 @@
 package com.banking.quantum.client.domain.service.validate;
 
 import com.banking.quantum.client.domain.account.Account;
-import com.banking.quantum.client.domain.account.AccountType;
 import com.banking.quantum.client.domain.dto.CreateAccountDto;
 import com.banking.quantum.client.domain.repository.AccountRepository;
 import com.banking.quantum.common.infra.exception.AccountAlreadyExistsException;
 import com.banking.quantum.common.infra.exception.ValidateException;
-import com.banking.quantum.manager.domain.banking.Agency;
 import com.banking.quantum.manager.domain.repository.AgencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public class ValidateAccount {

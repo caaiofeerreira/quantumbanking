@@ -13,7 +13,7 @@ import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.client.domain.service.validate.ValidateAccount;
 import com.banking.quantum.client.domain.service.validate.ValidateClient;
 import com.banking.quantum.common.domain.user.UserRole;
-import com.banking.quantum.common.infra.exception.ClientAccountCreationException;
+import com.banking.quantum.common.infra.exception.RegisterUserException;
 import com.banking.quantum.common.infra.exception.ValidateException;
 import com.banking.quantum.manager.domain.banking.Agency;
 import com.banking.quantum.manager.domain.repository.AgencyRepository;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegisterClientService {
+public class RegisterClientAndAccountService {
 
     @Autowired
     private ClientRepository clientRepository;
@@ -99,7 +99,7 @@ public class RegisterClientService {
             return new ClientDto(newClient);
 
         } catch (Exception e) {
-            throw new ClientAccountCreationException("Dados inválidos. Por favor, verifique as informações e tente novamente. " + e.getMessage());
+            throw new RegisterUserException("Dados inválidos. Por favor, verifique as informações e tente novamente. " + e.getMessage());
         }
     }
 }

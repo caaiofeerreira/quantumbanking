@@ -30,13 +30,6 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
     }
 
-    @ExceptionHandler(ClientAccountCreationException.class)
-    public ResponseEntity<ErrorResponse> handleClientAccountCreationException(ClientAccountCreationException exception) {
-
-        ErrorResponse errorResponse = new ErrorResponse(exception.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
-    }
-
     @ExceptionHandler(AccountNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleClientNotFoundException(AccountNotFoundException exception) {
 
@@ -44,8 +37,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
-    @ExceptionHandler(ManagerCreateExeption.class)
-    public ResponseEntity<ErrorResponse> handleManagerCreateException(ManagerCreateExeption exception) {
+    @ExceptionHandler(RegisterUserException.class)
+    public ResponseEntity<ErrorResponse> handleRegisterUserException(RegisterUserException exception) {
 
         ErrorResponse errorResponse = new ErrorResponse(exception.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);

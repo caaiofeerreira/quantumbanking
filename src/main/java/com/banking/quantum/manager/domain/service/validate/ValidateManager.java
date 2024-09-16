@@ -27,7 +27,7 @@ public class ValidateManager {
         }
 
         if (managerDto.cpf() == null || managerDto.cpf().trim().isEmpty()) {
-            throw new ManagerCreateExeption("O cpf é obrigatório.");
+            throw new ValidateException("O cpf é obrigatório.");
 
         } else if (!managerDto.cpf().matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")) {
             throw new ValidateException("O CPF deve estar no formato XXX.XXX.XXX-XX.");
@@ -67,6 +67,7 @@ public class ValidateManager {
                 managerDto.address().getBairro() == null || managerDto.address().getBairro().trim().isEmpty() ||
                 managerDto.address().getCidade() == null || managerDto.address().getCidade().trim().isEmpty() ||
                 managerDto.address().getCep() == null || managerDto.address().getCep().trim().isEmpty()) {
+
             throw new ValidateException("Os campos: Logradouro, número, bairro, cidade e CEP são obrigatórios.");
         }
     }
