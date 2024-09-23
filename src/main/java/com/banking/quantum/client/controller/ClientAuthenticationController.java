@@ -2,7 +2,9 @@ package com.banking.quantum.client.controller;
 
 import com.banking.quantum.client.domain.client.Client;
 import com.banking.quantum.client.domain.client.ClientAuthentication;
+import com.banking.quantum.client.repository.ClientRepository;
 import com.banking.quantum.common.infra.exception.InvalidCredentialsException;
+import com.banking.quantum.common.infra.exception.UnauthorizedAccessException;
 import com.banking.quantum.common.infra.security.DadosTokenJWT;
 import com.banking.quantum.common.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -24,10 +26,20 @@ public class ClientAuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    private ClientRepository clientRepository;
+
+    @Autowired
     private TokenService tokenService;
 
     @PostMapping("/login")
     public ResponseEntity<DadosTokenJWT> login(@RequestBody @Valid ClientAuthentication dados) {
+
+        Client client = clientRepository.findByCpf(dados.cpf());
+
+        if (client != null && !client.isAccountActive()) {
+            throw new UnauthorizedAccessException("Conta encerrada. Acesso negado.");
+        }
+
         try {
             var authenticationToken = new UsernamePasswordAuthenticationToken(dados.cpf(), dados.password());
             var authentication = authenticationManager.authenticate(authenticationToken);

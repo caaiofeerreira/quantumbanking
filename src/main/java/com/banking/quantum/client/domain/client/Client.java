@@ -1,6 +1,7 @@
 package com.banking.quantum.client.domain.client;
 
 import com.banking.quantum.client.domain.account.Account;
+import com.banking.quantum.client.domain.account.AccountStatus;
 import com.banking.quantum.common.domain.user.User;
 import com.banking.quantum.common.domain.user.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -77,5 +78,9 @@ public class Client extends User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public boolean isAccountActive() {
+        return getAccount() != null && getAccount().getStatus() != AccountStatus.ENCERRADA;
     }
 }

@@ -1,9 +1,11 @@
 package com.banking.quantum.manager.domain.manager;
 
+import com.banking.quantum.client.domain.account.Account;
 import com.banking.quantum.common.domain.user.User;
 import com.banking.quantum.common.domain.user.UserRole;
 import com.banking.quantum.manager.domain.banking.Agency;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity(name = "Manager")
 @Table(name = "tb_manager")

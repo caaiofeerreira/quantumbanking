@@ -1,10 +1,10 @@
 package com.banking.quantum.client.controller;
 
-import com.banking.quantum.client.domain.dto.ExternalTransferDto;
-import com.banking.quantum.client.domain.dto.InternalTransferDto;
-import com.banking.quantum.client.domain.dto.PixTransferDto;
-import com.banking.quantum.client.domain.dto.TransferOperationDto;
-import com.banking.quantum.client.domain.service.BankTransferService;
+import com.banking.quantum.client.domain.dto.transaction.ExternalTransferDto;
+import com.banking.quantum.client.domain.dto.transaction.InternalTransferDto;
+import com.banking.quantum.client.domain.dto.transaction.PixTransferDto;
+import com.banking.quantum.client.domain.dto.transaction.TransferOperationDto;
+import com.banking.quantum.client.service.BankTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

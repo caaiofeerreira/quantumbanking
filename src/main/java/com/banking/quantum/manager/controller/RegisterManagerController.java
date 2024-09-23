@@ -2,7 +2,7 @@ package com.banking.quantum.manager.controller;
 
 import com.banking.quantum.manager.domain.dto.CreateManagerDto;
 import com.banking.quantum.manager.domain.dto.ManagerDto;
-import com.banking.quantum.manager.domain.service.RegisterManagerService;
+import com.banking.quantum.manager.service.RegisterManagerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

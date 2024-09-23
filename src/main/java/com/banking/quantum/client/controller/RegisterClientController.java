@@ -1,10 +1,10 @@
 package com.banking.quantum.client.controller;
 
-import com.banking.quantum.client.domain.dto.ClientDto;
-import com.banking.quantum.client.domain.dto.CreateAccountDto;
-import com.banking.quantum.client.domain.dto.CreateClientDto;
+import com.banking.quantum.client.domain.dto.client.ClientDto;
+import com.banking.quantum.client.domain.dto.account.CreateAccountDto;
+import com.banking.quantum.client.domain.dto.client.CreateClientDto;
 import com.banking.quantum.client.domain.dto.RegisterClientAndAccount;
-import com.banking.quantum.client.domain.service.RegisterClientAndAccountService;
+import com.banking.quantum.client.service.RegisterClientAndAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

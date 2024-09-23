@@ -1,9 +1,13 @@
 package com.banking.quantum.manager.domain.banking;
 
+import com.banking.quantum.client.domain.account.Account;
 import com.banking.quantum.common.domain.address.Address;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "Agency")
 @Table(name = "tb_agency")
@@ -26,6 +30,10 @@ public class Agency {
 
     @Embedded
     private Address address;
+
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "agency")
+    private List<Account> accountList;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "banking_id")

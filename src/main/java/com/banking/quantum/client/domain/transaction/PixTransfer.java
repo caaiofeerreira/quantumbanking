@@ -34,8 +34,7 @@ public class PixTransfer {
     private Account accountDestiny;
 
     @Column(name = "pix_type")
-    @Enumerated(EnumType.STRING)
-    private PixType pixType;
+    private String pixType;
 
     @Column(name = "pix_key")
     private String pixKey;

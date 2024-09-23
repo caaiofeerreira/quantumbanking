@@ -1,7 +1,7 @@
 package com.banking.quantum.client.controller;
 
-import com.banking.quantum.client.domain.dto.ClientDto;
-import com.banking.quantum.client.domain.service.ClientUpdateService;
+import com.banking.quantum.client.domain.dto.client.ClientDto;
+import com.banking.quantum.client.service.ClientUpdateService;
 import com.banking.quantum.common.domain.dto.UserUpdateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

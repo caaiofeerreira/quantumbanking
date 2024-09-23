@@ -40,7 +40,8 @@ public class Account implements AccountOperation {
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "agency_id")
+    @JsonBackReference
+    @JoinColumn(name = "agency_id", nullable = false)
     private Agency agency;
 
     @Column(name = "status")

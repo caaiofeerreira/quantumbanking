@@ -2,7 +2,7 @@ package com.banking.quantum.manager.controller;
 
 import com.banking.quantum.common.domain.dto.UserUpdateDto;
 import com.banking.quantum.manager.domain.dto.ManagerDto;
-import com.banking.quantum.manager.domain.service.ManagerUpdateService;
+import com.banking.quantum.manager.service.ManagerUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

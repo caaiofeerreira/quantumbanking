@@ -1,8 +1,8 @@
 package com.banking.quantum.client.controller;
 
-import com.banking.quantum.client.domain.dto.AccountMovementDto;
-import com.banking.quantum.client.domain.dto.OperationAmountDto;
-import com.banking.quantum.client.domain.service.AccountMovementService;
+import com.banking.quantum.client.domain.dto.account.AccountMovementDto;
+import com.banking.quantum.client.domain.dto.transaction.OperationAmountDto;
+import com.banking.quantum.client.service.AccountMovementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

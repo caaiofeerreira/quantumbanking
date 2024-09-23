@@ -47,9 +47,8 @@ public class ExternalTransfer {
 
     private String document;
 
-    @Enumerated(EnumType.STRING)
-    @JoinColumn(name = "account_type_id")
-    private AccountType accountType;
+    @Column(name = "account_type")
+    private String accountType;
 
     @CreationTimestamp
     @Column(name = "created_at")
