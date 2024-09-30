@@ -1,10 +1,9 @@
 package com.banking.quantum.common.service;
 
 import com.banking.quantum.client.domain.client.Client;
-import com.banking.quantum.client.repository.ClientRepository;
-import com.banking.quantum.common.infra.exception.UnauthorizedAccessException;
+import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.manager.domain.manager.Manager;
-import com.banking.quantum.manager.repository.ManagerRepository;
+import com.banking.quantum.manager.domain.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

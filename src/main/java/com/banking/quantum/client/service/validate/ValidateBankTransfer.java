@@ -2,7 +2,7 @@ package com.banking.quantum.client.service.validate;
 
 import com.banking.quantum.client.domain.account.Account;
 import com.banking.quantum.client.domain.account.AccountStatus;
-import com.banking.quantum.client.repository.*;
+import com.banking.quantum.client.domain.repository.*;
 import com.banking.quantum.client.domain.transaction.ExternalTransfer;
 import com.banking.quantum.client.domain.transaction.InternalTransfer;
 import com.banking.quantum.client.domain.transaction.PixTransfer;

@@ -1,4 +1,4 @@
-package com.banking.quantum.client.repository;
+package com.banking.quantum.client.domain.repository;
 
 import com.banking.quantum.client.domain.client.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,8 +16,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     Optional<Client> findByCpfOrEmailOrPhone(@Param("cpf") String cpf,
                                              @Param("email") String email,
                                              @Param("phone") String phone);
-
-    Client findByAccountId(Long id);
 
     Optional<Client> findByPixKey(String pixKey);
 

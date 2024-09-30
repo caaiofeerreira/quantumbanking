@@ -2,7 +2,7 @@ package com.banking.quantum.client.service.validate;
 
 import com.banking.quantum.client.domain.account.Account;
 import com.banking.quantum.client.domain.account.AccountStatus;
-import com.banking.quantum.client.repository.AccountRepository;
+import com.banking.quantum.client.domain.repository.AccountRepository;
 import com.banking.quantum.common.infra.exception.AccountStatusException;
 import com.banking.quantum.common.infra.exception.TransactionNotAuthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;

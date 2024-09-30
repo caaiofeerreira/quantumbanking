@@ -3,7 +3,7 @@ package com.banking.quantum.client.service.impl;
 import com.banking.quantum.client.domain.client.Client;
 import com.banking.quantum.client.domain.dto.client.ClientDto;
 import com.banking.quantum.client.domain.dto.transaction.PixKeyDto;
-import com.banking.quantum.client.repository.ClientRepository;
+import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.client.service.RegisterAndUpdatePixService;
 import com.banking.quantum.client.service.validate.ValidateRegisterAndUpdatePix;
 import com.banking.quantum.common.infra.exception.PixProcessingException;

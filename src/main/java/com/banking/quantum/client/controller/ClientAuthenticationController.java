@@ -2,7 +2,7 @@ package com.banking.quantum.client.controller;
 
 import com.banking.quantum.client.domain.client.Client;
 import com.banking.quantum.client.domain.client.ClientAuthentication;
-import com.banking.quantum.client.repository.ClientRepository;
+import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.common.infra.exception.InvalidCredentialsException;
 import com.banking.quantum.common.infra.exception.UnauthorizedAccessException;
 import com.banking.quantum.common.infra.security.DadosTokenJWT;

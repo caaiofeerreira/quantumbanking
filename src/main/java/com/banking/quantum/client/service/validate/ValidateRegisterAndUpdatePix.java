@@ -3,7 +3,7 @@ package com.banking.quantum.client.service.validate;
 import com.banking.quantum.client.domain.account.AccountStatus;
 import com.banking.quantum.client.domain.client.Client;
 import com.banking.quantum.client.domain.dto.transaction.PixKeyDto;
-import com.banking.quantum.client.repository.ClientRepository;
+import com.banking.quantum.client.domain.repository.ClientRepository;
 import com.banking.quantum.common.infra.exception.ValidateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

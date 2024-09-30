@@ -1,8 +1,7 @@
-package com.banking.quantum.manager.controller;
+package com.banking.quantum.client.controller;
 
-import com.banking.quantum.manager.domain.dto.CreateManagerDto;
-import com.banking.quantum.manager.domain.dto.ManagerDto;
-import com.banking.quantum.manager.service.RegisterManagerService;
+import com.banking.quantum.client.domain.dto.CreateClientAccountDto;
+import com.banking.quantum.client.service.RegisterAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,16 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/quantumbanking/register")
-public class RegisterManagerController {
+public class RegisterAccountController {
 
     @Autowired
-    private RegisterManagerService registerService;
+    private RegisterAccountService registerService;
 
-    @PostMapping("/manager")
-    public ResponseEntity<String> createAccount(@RequestBody @Valid CreateManagerDto managerDto) {
+    @PostMapping("/account")
+    public ResponseEntity<String> createAccount(@RequestBody @Valid CreateClientAccountDto clientAndAccountDto) {
 
-        registerService.registerManager(managerDto);
-
+        registerService.registerAccount(clientAndAccountDto);
         return ResponseEntity.status(HttpStatus.OK).body("Sua conta foi registrada com sucesso.");
     }
 }

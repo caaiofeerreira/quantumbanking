@@ -28,8 +28,8 @@ public class SecurityConfigurations {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
-                    req.requestMatchers("/quantumbanking/client/register").permitAll();
-                    req.requestMatchers("/quantumbanking/manager/register").permitAll();
+                    req.requestMatchers("/quantumbanking/register/account").permitAll();
+                    req.requestMatchers("/quantumbanking/register/manager").permitAll();
                     req.requestMatchers("/quantumbanking/account/login").permitAll();
                     req.requestMatchers("/quantumbanking/manager/login").permitAll();
                     req.requestMatchers("/quantumbanking/account/**").hasRole("CLIENT");

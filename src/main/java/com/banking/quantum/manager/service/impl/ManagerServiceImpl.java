@@ -6,12 +6,12 @@ import com.banking.quantum.client.domain.account.AccountStatus;
 import com.banking.quantum.client.domain.account.CloseAccount;
 import com.banking.quantum.client.domain.dto.account.AccountClosureDto;
 import com.banking.quantum.client.domain.dto.account.AccountDto;
-import com.banking.quantum.client.repository.AccountRepository;
-import com.banking.quantum.client.repository.CloseAccountRepository;
+import com.banking.quantum.client.domain.repository.AccountRepository;
+import com.banking.quantum.client.domain.repository.CloseAccountRepository;
 import com.banking.quantum.common.infra.exception.AccountNotFoundException;
 import com.banking.quantum.common.infra.exception.UnauthorizedAccessException;
 import com.banking.quantum.common.infra.security.TokenService;
-import com.banking.quantum.manager.domain.dto.ApproveClosure;
+import com.banking.quantum.manager.domain.dto.ApprovalRequest;
 import com.banking.quantum.manager.domain.manager.Manager;
 import com.banking.quantum.manager.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +45,15 @@ public class ManagerServiceImpl implements ManagerService {
 
             List<Account> accounts = accountRepository.findByAgencyId(manager.getAgency().getId());
 
+            if (accounts.isEmpty()) {
+                throw new AccountNotFoundException("A agência ainda não possui clientes cadastrados.");
+            }
+
             return accounts.stream()
                     .map(AccountDto::new).toList();
 
+        } catch (AccountNotFoundException e) {
+            throw e;
         } catch (Exception e) {
             throw new RuntimeException("Erro ao obter contas", e);
         }
@@ -89,7 +95,7 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     @Transactional
-    public void finalizeAccountClosure(String token, ApproveClosure request) {
+    public void finalizeAccountClosure(String token, ApprovalRequest request) {
 
         try {
             Manager manager = tokenService.getManagerFromToken(token);
@@ -117,11 +123,13 @@ public class ManagerServiceImpl implements ManagerService {
                 accountRepository.save(account);
                 closeAccount.setClosingDate(LocalDateTime.now());
                 closeAccountRepository.save(closeAccount);
+            } else {
+                throw new UnauthorizedAccessException("Operação inválida: somente contas com status PENDENTE podem ser atualizados.");
             }
-        } catch (AccountNotFoundException e) {
+        } catch (AccountNotFoundException | UnauthorizedAccessException e) {
             throw e;
         } catch (Exception e) {
-            throw new UnauthorizedAccessException("Erro ao processar o token ou verificar permissões.");
+            throw new RuntimeException("Erro ao processar o token ou verificar permissões.");
         }
     }
 

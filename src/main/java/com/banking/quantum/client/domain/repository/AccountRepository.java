@@ -1,4 +1,4 @@
-package com.banking.quantum.client.repository;
+package com.banking.quantum.client.domain.repository;
 
 import com.banking.quantum.client.domain.account.Account;
 import com.banking.quantum.client.domain.account.AccountStatus;

@@ -2,7 +2,7 @@ package com.banking.quantum.manager.controller;
 
 import com.banking.quantum.client.domain.dto.account.AccountClosureDto;
 import com.banking.quantum.client.domain.dto.account.AccountDto;
-import com.banking.quantum.manager.domain.dto.ApproveClosure;
+import com.banking.quantum.manager.domain.dto.ApprovalRequest;
 import com.banking.quantum.manager.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +37,7 @@ public class ManagerAccountController {
     @PutMapping("/finalizer-account")
     @PreAuthorize("hasRole('MANAGER')")
     public ResponseEntity<Void> closeAccount(@RequestHeader("Authorization") String token,
-                                             @RequestBody ApproveClosure request) {
+                                             @RequestBody ApprovalRequest request) {
 
         managerService.finalizeAccountClosure(token, request);
         return ResponseEntity.ok().build();

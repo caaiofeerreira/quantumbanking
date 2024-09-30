@@ -1,4 +1,4 @@
-package com.banking.quantum.manager.repository;
+package com.banking.quantum.manager.domain.repository;
 
 import com.banking.quantum.manager.domain.banking.Agency;
 import org.springframework.data.jpa.repository.JpaRepository;

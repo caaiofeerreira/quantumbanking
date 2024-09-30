@@ -3,7 +3,7 @@ package com.banking.quantum.manager.service.validate;
 import com.banking.quantum.common.infra.exception.UserAlreadyExistsException;
 import com.banking.quantum.common.infra.exception.ValidateException;
 import com.banking.quantum.manager.domain.manager.Manager;
-import com.banking.quantum.manager.repository.ManagerRepository;
+import com.banking.quantum.manager.domain.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
