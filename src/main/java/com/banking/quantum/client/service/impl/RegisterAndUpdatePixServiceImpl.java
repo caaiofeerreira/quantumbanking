@@ -60,5 +60,4 @@ public class RegisterAndUpdatePixServiceImpl implements RegisterAndUpdatePixServ
             throw e;
         }
     }
-
 }
